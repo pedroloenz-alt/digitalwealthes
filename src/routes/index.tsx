@@ -3,13 +3,13 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Presell — Página de Vendas" },
+      { title: "Evaluador SoundRate" },
       {
         name: "description",
         content:
           "Página de presell estática pronta para receber o conteúdo do funil de vendas.",
       },
-      { property: "og:title", content: "Presell — Página de Vendas" },
+      { property: "og:title", content: "Evaluador SoundRate" },
       {
         property: "og:description",
         content:

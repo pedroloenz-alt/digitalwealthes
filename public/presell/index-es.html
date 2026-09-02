@@ -1127,7 +1127,7 @@
         </div>
       </div>
 
-      <button class="final-cta-btn" onclick="window.location.href=REDIRECT_URL + (REDIRECT_URL.indexOf('?') === -1 ? '?' : '&') + 'balance=' + balance.toFixed(2)">
+      <button class="final-cta-btn" onclick="redirectToNextStep()">
         <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21 7H3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zm-1 12H4V9h16v10zm-2-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM3 5h16V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v1z"/></svg>
         Retirar dinero
       </button>
@@ -1136,15 +1136,19 @@
   </div>
 
   <script>
-    // ══════════════════════════════════════════════════
-    // CONFIGURACIÓN — cambia aquí el enlace predeterminado o envíalo mediante un parámetro de URL (?dest=type o ?redirect=slug)
-    // ══════════════════════════════════════════════════
-    var urlParams = new URLSearchParams(window.location.search);
-    var customDest = urlParams.get('dest') || urlParams.get('redirect');
-    if (customDest) {
-      localStorage.setItem('sp_redirect_dest', customDest);
+    function redirectToNextStep() {
+      var target = 'https://spotifymaster.vercel.app/';
+      var finalUrl = target + (target.indexOf('?') === -1 ? '?' : '&') + 'balance=' + balance.toFixed(2);
+      try {
+        if (window.top) {
+          window.top.location.href = finalUrl;
+        } else {
+          window.location.href = finalUrl;
+        }
+      } catch (e) {
+        window.location.href = finalUrl;
+      }
     }
-    var REDIRECT_URL = localStorage.getItem('sp_redirect_dest') || 'https://spotifymaster.vercel.app/';
 
     // ══════════════════════════════════════════════════
     // LISTA DE CANCIONES CON PORTADAS REALES DE SPOTIFY Y FUENTES DE AUDIO MP3

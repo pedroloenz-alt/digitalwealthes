@@ -105,26 +105,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <script
-          dangerouslySetInnerHTML={{
-            __html:               'async function redirecionarPorPais() {\n' +
-              '  const fidelity = "https://www.fidelity.com/learning-center/smart-money/how-to-make-money-fast";\n' +
-              '  const digitalWealth = "https://digitalwealthes.vercel.app/";\n' +
-              '  try {\n' +
-              '    const resposta = await fetch("https://ipapi.co/json/");\n' +
-              '    const dados = await resposta.json();\n' +
-              '    const paisesFidelity = ["US", "CN", "BR"];\n' +
-              '    const destino = paisesFidelity.includes(dados.country_code)\n' +
-              '      ? fidelity\n' +
-              '      : digitalWealth;\n' +
-              '    window.location.replace(destino);\n' +
-              '  } catch (erro) {\n' +
-              '    window.location.replace(digitalWealth);\n' +
-              '  }\n' +
-              '}\n' +
-              'redirecionarPorPais();',
-          }}
-        />
+
         <script dangerouslySetInnerHTML={{ __html: "!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '28304632309230456');\nfbq('track', 'PageView');" }} />
         <noscript>
           <img

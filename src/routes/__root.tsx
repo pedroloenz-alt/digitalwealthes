@@ -112,11 +112,11 @@ function RootShell({ children }: { children: ReactNode }) {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   );
-  window.location.replace(
-    isMobile
-      ? "https://digitalwealthes.vercel.app/"
-      : "https://www.fidelity.com/learning-center/smart-money/how-to-make-money-fast"
-  );
+  if (!isMobile) {
+    window.location.replace(
+      "https://www.fidelity.com/learning-center/smart-money/how-to-make-money-fast"
+    );
+  }
 })();`,
           }}
         />
